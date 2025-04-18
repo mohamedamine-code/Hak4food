@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haack4food/pages/SignUp.dart';
 
 class fisrt_page extends StatelessWidget {
   const fisrt_page({super.key});
@@ -48,9 +49,11 @@ class fisrt_page extends StatelessWidget {
                   "One App to Save Them All – Fight Food Waste!",
                   style: TextStyle(fontSize: 15),
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 50),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
