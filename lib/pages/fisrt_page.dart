@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haack4food/pages/SignUp.dart';
+import 'package:haack4food/pages/SginUp.dart';
+import 'package:haack4food/pages/SignIn.dart';
 
 class fisrt_page extends StatelessWidget {
   const fisrt_page({super.key});
@@ -52,7 +53,7 @@ class fisrt_page extends StatelessWidget {
                 SizedBox(height: 50),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SginUp()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
