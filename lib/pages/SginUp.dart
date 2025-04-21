@@ -18,16 +18,43 @@ class SginUp extends StatelessWidget {
       // ),
       body: SafeArea(
         child: Center(
-          child: Stack(
-            children: [
-              
-              // SizedBox(
-              //   height: 10,
-              // ),
-               // Instead of Expanded for spacing
-              Positioned(
-                bottom: 0,
-                child: Column(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => fisrt_page()),
+                          );
+                        },
+                        icon: Icon(Icons.arrow_back, size: 35, color: Colors.black),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        // color: Colors.red,
+                        width: 150,
+                        height: 100,
+                        child: Lottie.asset(
+                          fit: BoxFit.cover,
+                          'assets/animation/animation07.json',
+                          repeat: false,
+                          // height: 300,
+                          // width: 300,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 163),
+                Column(
                   children: [
                     Container(
                       width: 400,
@@ -145,7 +172,7 @@ class SginUp extends StatelessWidget {
                                 ),
                               ),
                             ),
-                              
+            
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: GestureDetector(
@@ -187,27 +214,8 @@ class SginUp extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  // color: Colors.red,
-                  width: 150,
-                  height: 100,
-                  child: Lottie.asset(
-                    fit: BoxFit.cover,
-                    'assets/animation/animation07.json',
-                    repeat: true,
-                    // height: 300,
-                    // width: 300,
-                  ),
-                ),
-              ),
-              IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>fisrt_page()));
-        }, icon: Icon(Icons.arrow_back,size: 35,color: Colors.black,)),
-              
-            ],
+              ],
+            ),
           ),
         ),
       ),

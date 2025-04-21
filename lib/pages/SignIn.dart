@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haack4food/pages/DashBored.dart' show DashBored;
 import 'package:haack4food/pages/SginUp.dart';
 import 'package:haack4food/pages/fisrt_page.dart';
 import 'package:lottie/lottie.dart';
@@ -27,14 +28,35 @@ class SignIn extends StatelessWidget {
       body: SafeArea(
         // appBar:
         child: Center(
-          child: Stack(
-            children: [
-              
-              
-               // Instead of Expanded for spacing
-              Positioned(
-                bottom: 0,
-                child: Column(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Align(
+                  alignment: Alignment.topCenter,
+                  child: Lottie.asset(
+                    'assets/animation/animation.json',
+                    repeat: false,
+                    height: 340,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SginUp()),
+                    );
+                  },
+                  icon: Icon(Icons.arrow_back, size: 35, color: Colors.black),
+                ),
+                  ],
+                ),
+                // Instead of Expanded for spacing
+                SizedBox(
+                  height: 43,
+                ),
+                Column(
                   children: [
                     Container(
                       width: 400,
@@ -94,7 +116,9 @@ class SignIn extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8.0,
+                              ),
                               child: Align(
                                 alignment: Alignment.topRight,
                                 child: Text('Forget password?'),
@@ -108,26 +132,33 @@ class SignIn extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.black,
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    'Login',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                child: GestureDetector(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>DashBored()));
+                                  },
+                                  child: Center(
+                                    child: Text(
+                                      'Login',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                    
+                            
                             Padding(
                               padding: const EdgeInsets.all(20),
                               child: GestureDetector(
                                 onTap: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => SginUp()),
+                                    MaterialPageRoute(
+                                      builder: (context) => SginUp(),
+                                    ),
                                   );
                                 },
                                 child: Center(
@@ -141,7 +172,8 @@ class SignIn extends StatelessWidget {
                                         TextSpan(
                                           text: 'Sign up',
                                           style: TextStyle(
-                                            decoration: TextDecoration.underline,
+                                            decoration:
+                                                TextDecoration.underline,
                                             fontSize: 15,
                                             decorationColor: Colors.black,
                                             decorationThickness: 2.0,
@@ -160,25 +192,8 @@ class SignIn extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Lottie.asset(
-                  'assets/animation/animation.json',
-                  repeat: false,
-                  height: 340,
-                                ),
-                ),
-                 IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => fisrt_page()),
-            );
-          },
-          icon: Icon(Icons.arrow_back, size: 35,color: Colors.black,),
-        ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
